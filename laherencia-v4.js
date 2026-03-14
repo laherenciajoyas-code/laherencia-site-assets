@@ -2,7 +2,8 @@
   'use strict';
 
   // ============================================================
-  // LA HERENCIA JOYAS — Site Enhancement Script v4
+  // LA HERENCIA JOYAS — Site Enhancement Script v5
+  // Inspired by: Bibi van der Velden, TANE, Mejuri
   // ============================================================
 
   function onReady(fn) {
@@ -13,7 +14,7 @@
   onReady(function() {
 
     // -------------------------------------------------------
-    // 1. CUSTOM CSS
+    // 1. CUSTOM CSS — Luxury-inspired refinements
     // -------------------------------------------------------
     var css = document.createElement('style');
     css.id = 'lh-custom-styles';
@@ -22,13 +23,16 @@
       // — Google Fonts —
       '@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap");',
 
+      // — Anti-aliasing (TANE pattern) —
+      'body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }',
+
       // — Global typography —
       'body, .theme-font-text { font-family: "Raleway", "Helvetica Neue", sans-serif !important; font-weight: 400; letter-spacing: 0.01em; line-height: 1.7; }',
       'h1, h2, h3, h4, h5, h6, .theme-font-title, .product-card__title, .theme-section__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 500; letter-spacing: 0.04em; }',
       'h1, .theme-section__title { font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1.8rem; }',
       'h2 { font-weight: 500; letter-spacing: 0.05em; }',
 
-      // — Navigation bar —
+      // — Navigation bar — dark, TANE-inspired —
       '.header-navigation { background: #3B2A24 !important; }',
       'nav.header-nav { background: #3B2A24 !important; }',
       '.header-nav__menu { gap: 0 !important; justify-content: center !important; }',
@@ -39,67 +43,82 @@
       'nav.header-nav .header-nav__anchor:hover { color: #D6A678 !important; background: rgba(237,228,217,0.06) !important; }',
       '.header { border-bottom: none !important; }',
 
-      // — Section titles — elegant with decorative lines —
-      '.theme-section__title { position: relative; display: inline-block; padding-bottom: 0.75rem; margin-bottom: 2.5rem !important; }',
-      '.theme-section .theme-section__heading { text-align: center; margin-bottom: 0.5rem; }',
-      '.theme-section__subtitle { font-family: "Raleway", sans-serif !important; font-size: 0.8rem !important; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 400; opacity: 0.7; }',
+      // — Section titles — Mejuri-inspired: clean, centered, generous spacing —
+      '.theme-section__title { position: relative; display: inline-block; padding-bottom: 0.75rem; margin-bottom: 2rem !important; font-family: "Cormorant Garamond", Georgia, serif !important; }',
+      '.theme-section__subtitle { font-family: "Raleway", sans-serif !important; font-size: 0.75rem !important; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 400; opacity: 0.6; }',
+      '.theme-section__description { font-family: "Raleway", sans-serif !important; font-size: 0.88rem; line-height: 1.8; opacity: 0.85; }',
 
-      // — Section dividers — subtle lines between sections —
-      '.theme-section + .theme-section { border-top: 1px solid rgba(139,94,60,0.1); }',
+      // — Section dividers — BVV-inspired: generous whitespace —
+      '.theme-section + .theme-section { border-top: 1px solid rgba(139,94,60,0.08); }',
+      '.theme-section { padding-top: 4rem !important; padding-bottom: 4rem !important; }',
 
-      // — Slider/Hero text refinement —
-      '.theme-slider .theme-section__subtitle { font-family: "Raleway", sans-serif !important; font-weight: 400 !important; letter-spacing: 0.18em !important; font-size: 0.8rem !important; text-transform: uppercase; }',
-      '.theme-slider .theme-section__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 600 !important; letter-spacing: 0.06em !important; }',
+      // — Slider/Hero — TANE-inspired: editorial, dramatic —
+      '.theme-slider .theme-section__subtitle { font-family: "Raleway", sans-serif !important; font-weight: 300 !important; letter-spacing: 0.2em !important; font-size: 0.75rem !important; text-transform: uppercase; }',
+      '.theme-slider .theme-section__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 300 !important; letter-spacing: 0.08em !important; font-size: 3rem !important; }',
 
-      // — Product cards —
-      '.product-card { transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 4px; overflow: hidden; }',
-      '.product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(139,94,60,0.12); }',
-      '.product-card__title { font-size: 1rem; font-weight: 500; letter-spacing: 0.02em; }',
-      '.product-card__price { font-family: "Raleway", sans-serif !important; font-weight: 600; letter-spacing: 0.02em; }',
+      // — Product cards — Mejuri-inspired: minimal, clean hover —
+      '.product-card { transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); border-radius: 0 !important; overflow: hidden; }',
+      '.product-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(59,42,36,0.08); }',
+      '.product-card__title { font-size: 0.92rem; font-weight: 500; letter-spacing: 0.02em; line-height: 1.4; }',
+      '.product-card__price { font-family: "Raleway", sans-serif !important; font-weight: 600; letter-spacing: 0.03em; font-size: 0.85rem; }',
 
-      // — Buttons —
-      '.btn, .button:not(.header-nav__anchor):not(.header__link), [class*="btn-primary"], .theme-button { font-family: "Raleway", sans-serif !important; font-weight: 600 !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; font-size: 0.78rem !important; border-radius: 2px !important; transition: all 0.3s ease !important; }',
+      // — Article/Blog cards — editorial look —
+      '.article-block { border-radius: 0 !important; overflow: hidden; }',
+      '.article-block__wrapper { transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); }',
+      '.article-block:hover .article-block__wrapper { transform: translateY(-2px); }',
+      '.article-block__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 500; font-size: 1.1rem; letter-spacing: 0.02em; line-height: 1.4; }',
+      '.article-block__date { font-family: "Raleway", sans-serif !important; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; }',
 
-      // — Section spacing —
-      '.theme-section { padding-top: 3.5rem; padding-bottom: 3.5rem; }',
+      // — Buttons — sharp, no radius (BVV + TANE) —
+      '.btn, .button:not(.header-nav__anchor):not(.header__link):not(.header__button):not(.theme-tabs__tab), [class*="btn-primary"], .theme-button { font-family: "Raleway", sans-serif !important; font-weight: 600 !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; font-size: 0.72rem !important; border-radius: 0 !important; transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important; }',
+
+      // — Tabs (blog section) — refined —
+      '.theme-tabs__tab { font-family: "Raleway", sans-serif !important; font-size: 0.72rem !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; border-radius: 0 !important; }',
 
       // — Footer base —
       'footer, .footer { font-family: "Raleway", sans-serif !important; font-size: 0.85rem; letter-spacing: 0.02em; }',
 
       // — Trust banner —
-      '.lh-trust-banner { background: #3B2A24; color: #EDE4D9; padding: 2.5rem 1rem; text-align: center; font-family: "Raleway", sans-serif; }',
-      '.lh-trust-banner__inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }',
-      '.lh-trust-item { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; min-width: 180px; }',
-      '.lh-trust-item__icon { font-size: 1.6rem; opacity: 0.9; }',
-      '.lh-trust-item__title { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.06em; text-transform: uppercase; color: #EDE4D9; }',
-      '.lh-trust-item__text { font-size: 0.78rem; opacity: 0.8; letter-spacing: 0.02em; line-height: 1.5; }',
+      '.lh-trust-banner { background: #3B2A24; color: #EDE4D9; padding: 3rem 1rem; text-align: center; font-family: "Raleway", sans-serif; }',
+      '.lh-trust-banner__inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 3.5rem; flex-wrap: wrap; }',
+      '.lh-trust-item { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; min-width: 180px; }',
+      '.lh-trust-item__icon { font-size: 1.4rem; opacity: 0.8; }',
+      '.lh-trust-item__title { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: #EDE4D9; }',
+      '.lh-trust-item__text { font-size: 0.72rem; opacity: 0.65; letter-spacing: 0.03em; line-height: 1.5; }',
 
       // — Footer nav —
-      '.lh-footer-nav { background: #EDE4D9; border-top: 1px solid rgba(139,94,60,0.2); padding: 2rem 1rem; text-align: center; }',
-      '.lh-footer-nav__inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }',
-      '.lh-footer-nav a { font-family: "Raleway", sans-serif; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #3B2A24; text-decoration: none; transition: color 0.3s ease; padding: 0.3rem 0; border-bottom: 1px solid transparent; }',
+      '.lh-footer-nav { background: #EDE4D9; border-top: 1px solid rgba(139,94,60,0.15); padding: 2.5rem 1rem; text-align: center; }',
+      '.lh-footer-nav__inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }',
+      '.lh-footer-nav a { font-family: "Raleway", sans-serif; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: #3B2A24; text-decoration: none; transition: all 0.3s ease; padding: 0.3rem 0; border-bottom: 1px solid transparent; }',
       '.lh-footer-nav a:hover { color: #8B5E3C; border-bottom-color: #8B5E3C; }',
 
       // — Top bar —
-      '.lh-top-bar { background: #8B5E3C; color: #EDE4D9; text-align: center; padding: 0.5rem 1rem; font-family: "Raleway", sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }',
+      '.lh-top-bar { background: #8B5E3C; color: #EDE4D9; text-align: center; padding: 0.55rem 1rem; font-family: "Raleway", sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }',
 
       // — Hide Jumpseller branding —
       'a[href*="jumpseller.com"]:not([class]) { display: none !important; }',
 
-      // — Smooth scroll —
+      // — Smooth scroll & transitions —
       'html { scroll-behavior: smooth; }',
+      '* { transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); }',
 
       // — Page content —
-      '.page__body p, .page__body li { font-size: 0.95rem; line-height: 1.8; color: #3B2A24; }',
-      '.page__body h2 { font-family: "Cormorant Garamond", serif !important; font-weight: 600; font-size: 1.5rem; color: #3B2A24; margin-top: 2rem; margin-bottom: 1rem; }',
-      '.page__body h3 { font-family: "Cormorant Garamond", serif !important; font-weight: 500; font-size: 1.2rem; color: #8B5E3C; }',
+      '.page__body p, .page__body li { font-size: 0.92rem; line-height: 1.85; color: #3B2A24; }',
+      '.page__body h2 { font-family: "Cormorant Garamond", serif !important; font-weight: 600; font-size: 1.5rem; color: #3B2A24; margin-top: 2.5rem; margin-bottom: 1rem; letter-spacing: 0.04em; }',
+      '.page__body h3 { font-family: "Cormorant Garamond", serif !important; font-weight: 500; font-size: 1.15rem; color: #8B5E3C; letter-spacing: 0.03em; }',
+
+      // — Image treatments — subtle zoom on hover (BVV) —
+      '.product-card__image img, .article-block img { transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) !important; }',
+      '.product-card:hover .product-card__image img, .article-block:hover img { transform: scale(1.03) !important; }',
 
       // — Mobile —
       '@media (max-width: 768px) {',
       '  .lh-trust-banner__inner { flex-direction: column; gap: 1.5rem; align-items: center; }',
       '  .lh-footer-nav__inner { flex-direction: column; gap: 0.8rem; }',
-      '  .lh-top-bar { font-size: 0.65rem; letter-spacing: 0.08em; }',
+      '  .lh-top-bar { font-size: 0.6rem; letter-spacing: 0.08em; padding: 0.45rem 0.5rem; }',
       '  nav.header-nav .header-nav__anchor { font-size: 0.68rem !important; padding: 0 0.8rem !important; letter-spacing: 0.1em !important; }',
+      '  .theme-slider .theme-section__title { font-size: 2rem !important; }',
+      '  .theme-section { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }',
       '}'
 
     ].join('\n');
@@ -146,7 +165,7 @@
     });
 
     // -------------------------------------------------------
-    // 5. TOP ANNOUNCEMENT BAR
+    // 4. TOP ANNOUNCEMENT BAR
     // -------------------------------------------------------
     var header = document.querySelector('header, .header');
     if (header) {
@@ -157,7 +176,7 @@
     }
 
     // -------------------------------------------------------
-    // 6. TRUST BADGES
+    // 5. TRUST BADGES
     // -------------------------------------------------------
     var footer = document.querySelector('footer, .footer');
     if (footer) {
@@ -172,18 +191,15 @@
       footer.parentNode.insertBefore(trustBanner, footer);
 
       // -------------------------------------------------------
-      // 7. FOOTER NAVIGATION
+      // 6. FOOTER NAVIGATION
       // -------------------------------------------------------
       var footerNav = document.createElement('div');
       footerNav.className = 'lh-footer-nav';
       footerNav.innerHTML = '<div class="lh-footer-nav__inner">'
         + '<a href="/quienes-somos-1">Qui\u00e9nes Somos</a>'
-        + '<a href="/aros-de-oro-para-recien-nacida-guia-para-elegir-el-par-perfecto-y-seguro">Blog: Aros Reci\u00e9n Nacida</a>'
-        + '<a href="/oro-18k-vs-14k-vs-10k-como-saber-cual-es-la-mejor-inversion-y-calidad-en-joyas">Blog: Oro 18K vs 14K</a>'
-        + '<a href="/medallas-religiosas-oro-18k-significado">Blog: Medallas Religiosas</a>'
-        + '<a href="/refund-policy">Cuidados y Recomendaciones</a>'
-        + '<a href="/terminos-y-condiciones">T\u00e9rminos y Condiciones</a>'
-        + '<a href="/privacy-policy">Pol\u00edtica de Privacidad</a>'
+        + '<a href="/refund-policy">Cuidados</a>'
+        + '<a href="/terminos-y-condiciones">T\u00e9rminos</a>'
+        + '<a href="/privacy-policy">Privacidad</a>'
         + '</div>';
       footer.parentNode.insertBefore(footerNav, footer);
     }
