@@ -197,12 +197,25 @@
       footerNav.className = 'lh-footer-nav';
       footerNav.innerHTML = '<div class="lh-footer-nav__inner">'
         + '<a href="/quienes-somos-1">Qui\u00e9nes Somos</a>'
+        + '<a href="/guia-de-tallas">Gu\u00eda de Tallas</a>'
+        + '<a href="/regalos-por-ocasion">Regalos por Ocasi\u00f3n</a>'
         + '<a href="/refund-policy">Cuidados</a>'
         + '<a href="/terminos-y-condiciones">T\u00e9rminos</a>'
         + '<a href="/privacy-policy">Privacidad</a>'
         + '</div>';
       footer.parentNode.insertBefore(footerNav, footer);
     }
+
+    // -------------------------------------------------------
+    // 7. WHATSAPP — improved with pre-filled message
+    // -------------------------------------------------------
+    var waLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]');
+    waLinks.forEach(function(link) {
+      var href = link.getAttribute('href');
+      if (href && href.indexOf('text=') === -1 && href.indexOf('56988377115') !== -1) {
+        link.setAttribute('href', 'https://wa.me/56988377115?text=Hola%2C%20me%20interesan%20las%20joyas%20de%20La%20Herencia.%20%C2%BFPodr%C3%ADan%20ayudarme%3F');
+      }
+    });
 
   });
 })();
