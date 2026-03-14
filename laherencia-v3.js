@@ -2,7 +2,7 @@
   'use strict';
 
   // ============================================================
-  // LA HERENCIA JOYAS — Site Enhancement Script v3
+  // LA HERENCIA JOYAS — Site Enhancement Script v4
   // ============================================================
 
   function onReady(fn) {
@@ -28,20 +28,33 @@
       'h1, .section__title { font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1.8rem; }',
       'h2 { font-weight: 500; letter-spacing: 0.05em; }',
 
-      // — Navigation bar — dark background, light text, high specificity —
+      // — Navigation bar —
       '.header-navigation { background: #3B2A24 !important; }',
       'nav.header-nav { background: #3B2A24 !important; }',
       '.header-nav__menu { gap: 0 !important; justify-content: center !important; }',
       '.header-nav__item { position: relative; }',
       '.header-nav__item + .header-nav__item::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 18px; background: rgba(237,228,217,0.2); }',
-
-      // — Nav anchor override — must beat: .header-nav__anchor:not(...){color:var(--color-main)!important} —
       'nav.header-nav .header-nav__anchor:not(.header-nav__anchor--categories.header__button) { color: #EDE4D9 !important; }',
       'nav.header-nav .header-nav__anchor { font-family: "Raleway", sans-serif !important; font-weight: 500 !important; font-size: 0.72rem !important; text-transform: uppercase !important; letter-spacing: 0.14em !important; padding: 0 1.8rem !important; transition: all 0.3s ease !important; }',
       'nav.header-nav .header-nav__anchor:hover { color: #D6A678 !important; background: rgba(237,228,217,0.06) !important; }',
-
-      // — Header bottom border —
       '.header { border-bottom: none !important; }',
+
+      // — Section titles — elegant with decorative lines —
+      '.section__title { position: relative; display: inline-block; padding-bottom: 0.75rem; margin-bottom: 2.5rem !important; }',
+      '.theme-section .section__heading { text-align: center; margin-bottom: 0.5rem; }',
+      '.section__subtitle { font-family: "Raleway", sans-serif !important; font-size: 0.8rem !important; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 400; opacity: 0.7; }',
+
+      // — Section dividers — subtle lines between sections —
+      '.theme-section + .theme-section { border-top: 1px solid rgba(139,94,60,0.1); }',
+
+      // — Slider/Hero text refinement —
+      '.theme-slider .slide__subtitle { font-family: "Raleway", sans-serif !important; font-weight: 400 !important; letter-spacing: 0.18em !important; font-size: 0.8rem !important; text-transform: uppercase; }',
+      '.theme-slider .slide__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 600 !important; letter-spacing: 0.06em !important; }',
+      '.theme-slider .slide__button { font-family: "Raleway", sans-serif !important; font-weight: 500 !important; letter-spacing: 0.12em !important; font-size: 0.75rem !important; text-transform: uppercase; border-radius: 0 !important; padding: 0.8rem 2.5rem !important; }',
+
+      // — Banner cards — better text styling —
+      '.banner-block__subtitle { font-family: "Raleway", sans-serif !important; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.75rem !important; }',
+      '.banner-block__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 600; letter-spacing: 0.04em; }',
 
       // — Product cards —
       '.product-card { transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 4px; overflow: hidden; }',
@@ -50,11 +63,10 @@
       '.product-card__price { font-family: "Raleway", sans-serif !important; font-weight: 600; letter-spacing: 0.02em; }',
 
       // — Buttons —
-      '.btn, .button:not(.header-nav__anchor), [class*="btn-primary"], .theme-button { font-family: "Raleway", sans-serif !important; font-weight: 600 !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; font-size: 0.78rem !important; border-radius: 2px !important; transition: all 0.3s ease !important; }',
+      '.btn, .button:not(.header-nav__anchor):not(.header__link), [class*="btn-primary"], .theme-button { font-family: "Raleway", sans-serif !important; font-weight: 600 !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; font-size: 0.78rem !important; border-radius: 2px !important; transition: all 0.3s ease !important; }',
 
       // — Section spacing —
-      '.section { padding-top: 3.5rem; padding-bottom: 3.5rem; }',
-      '.section__title { margin-bottom: 2rem; }',
+      '.theme-section { padding-top: 3.5rem; padding-bottom: 3.5rem; }',
 
       // — Footer base —
       'footer, .footer { font-family: "Raleway", sans-serif !important; font-size: 0.85rem; letter-spacing: 0.02em; }',
@@ -116,7 +128,41 @@
     });
 
     // -------------------------------------------------------
-    // 3. TOP ANNOUNCEMENT BAR
+    // 3. RENAME SECTION TITLES — more elegant & concise
+    // -------------------------------------------------------
+    var sectionRenames = {
+      'Productos destacados': 'Nuestra Selecci\u00f3n',
+      'Productos MAS VENDIDOS': 'Los M\u00e1s Elegidos',
+      'CONSEJOS DE ORFEBRE': 'Consejos de Orfebre',
+      'Enc\u00faentranos': 'Vis\u00edtanos',
+      'Nuestras tiendas': 'Puntos de Retiro'
+    };
+
+    document.querySelectorAll('.section__title').forEach(function(el) {
+      var text = el.textContent.trim();
+      if (sectionRenames[text]) {
+        el.textContent = sectionRenames[text];
+      }
+    });
+
+    // -------------------------------------------------------
+    // 4. IMPROVE SLIDER TAGLINES
+    // -------------------------------------------------------
+    var sliderRenames = {
+      'calidad en cada pieza': 'Joyas que cuentan tu historia',
+      'Accesorios que marcan tendencia': 'Orfebrer\u00eda artesanal chilena',
+      'AMULETOS, F\u00c9 Y RELIGI\u00d3N': 'Fe, tradici\u00f3n y protecci\u00f3n'
+    };
+
+    document.querySelectorAll('.slide__subtitle, .slide__title').forEach(function(el) {
+      var text = el.textContent.trim();
+      if (sliderRenames[text]) {
+        el.textContent = sliderRenames[text];
+      }
+    });
+
+    // -------------------------------------------------------
+    // 5. TOP ANNOUNCEMENT BAR
     // -------------------------------------------------------
     var header = document.querySelector('header, .header');
     if (header) {
@@ -127,7 +173,7 @@
     }
 
     // -------------------------------------------------------
-    // 4. TRUST BADGES
+    // 6. TRUST BADGES
     // -------------------------------------------------------
     var footer = document.querySelector('footer, .footer');
     if (footer) {
@@ -142,7 +188,7 @@
       footer.parentNode.insertBefore(trustBanner, footer);
 
       // -------------------------------------------------------
-      // 5. FOOTER NAVIGATION
+      // 7. FOOTER NAVIGATION
       // -------------------------------------------------------
       var footerNav = document.createElement('div');
       footerNav.className = 'lh-footer-nav';
