@@ -24,8 +24,8 @@
 
       // — Global typography —
       'body, .theme-font-text { font-family: "Raleway", "Helvetica Neue", sans-serif !important; font-weight: 400; letter-spacing: 0.01em; line-height: 1.7; }',
-      'h1, h2, h3, h4, h5, h6, .theme-font-title, .product-card__title, .section__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 500; letter-spacing: 0.04em; }',
-      'h1, .section__title { font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1.8rem; }',
+      'h1, h2, h3, h4, h5, h6, .theme-font-title, .product-card__title, .theme-section__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 500; letter-spacing: 0.04em; }',
+      'h1, .theme-section__title { font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1.8rem; }',
       'h2 { font-weight: 500; letter-spacing: 0.05em; }',
 
       // — Navigation bar —
@@ -40,21 +40,16 @@
       '.header { border-bottom: none !important; }',
 
       // — Section titles — elegant with decorative lines —
-      '.section__title { position: relative; display: inline-block; padding-bottom: 0.75rem; margin-bottom: 2.5rem !important; }',
-      '.theme-section .section__heading { text-align: center; margin-bottom: 0.5rem; }',
-      '.section__subtitle { font-family: "Raleway", sans-serif !important; font-size: 0.8rem !important; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 400; opacity: 0.7; }',
+      '.theme-section__title { position: relative; display: inline-block; padding-bottom: 0.75rem; margin-bottom: 2.5rem !important; }',
+      '.theme-section .theme-section__heading { text-align: center; margin-bottom: 0.5rem; }',
+      '.theme-section__subtitle { font-family: "Raleway", sans-serif !important; font-size: 0.8rem !important; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 400; opacity: 0.7; }',
 
       // — Section dividers — subtle lines between sections —
       '.theme-section + .theme-section { border-top: 1px solid rgba(139,94,60,0.1); }',
 
       // — Slider/Hero text refinement —
-      '.theme-slider .slide__subtitle { font-family: "Raleway", sans-serif !important; font-weight: 400 !important; letter-spacing: 0.18em !important; font-size: 0.8rem !important; text-transform: uppercase; }',
-      '.theme-slider .slide__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 600 !important; letter-spacing: 0.06em !important; }',
-      '.theme-slider .slide__button { font-family: "Raleway", sans-serif !important; font-weight: 500 !important; letter-spacing: 0.12em !important; font-size: 0.75rem !important; text-transform: uppercase; border-radius: 0 !important; padding: 0.8rem 2.5rem !important; }',
-
-      // — Banner cards — better text styling —
-      '.banner-block__subtitle { font-family: "Raleway", sans-serif !important; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.75rem !important; }',
-      '.banner-block__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 600; letter-spacing: 0.04em; }',
+      '.theme-slider .theme-section__subtitle { font-family: "Raleway", sans-serif !important; font-weight: 400 !important; letter-spacing: 0.18em !important; font-size: 0.8rem !important; text-transform: uppercase; }',
+      '.theme-slider .theme-section__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 600 !important; letter-spacing: 0.06em !important; }',
 
       // — Product cards —
       '.product-card { transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 4px; overflow: hidden; }',
@@ -128,36 +123,25 @@
     });
 
     // -------------------------------------------------------
-    // 3. RENAME SECTION TITLES — more elegant & concise
+    // 3. RENAME SECTION TITLES & SLIDER TAGLINES
     // -------------------------------------------------------
-    var sectionRenames = {
+    var textRenames = {
+      // Section titles
       'Productos destacados': 'Nuestra Selecci\u00f3n',
       'Productos MAS VENDIDOS': 'Los M\u00e1s Elegidos',
       'CONSEJOS DE ORFEBRE': 'Consejos de Orfebre',
       'Enc\u00faentranos': 'Vis\u00edtanos',
-      'Nuestras tiendas': 'Puntos de Retiro'
-    };
-
-    document.querySelectorAll('.section__title').forEach(function(el) {
-      var text = el.textContent.trim();
-      if (sectionRenames[text]) {
-        el.textContent = sectionRenames[text];
-      }
-    });
-
-    // -------------------------------------------------------
-    // 4. IMPROVE SLIDER TAGLINES
-    // -------------------------------------------------------
-    var sliderRenames = {
+      'Nuestras tiendas': 'Puntos de Retiro',
+      // Slider subtitles
       'calidad en cada pieza': 'Joyas que cuentan tu historia',
       'Accesorios que marcan tendencia': 'Orfebrer\u00eda artesanal chilena',
       'AMULETOS, F\u00c9 Y RELIGI\u00d3N': 'Fe, tradici\u00f3n y protecci\u00f3n'
     };
 
-    document.querySelectorAll('.slide__subtitle, .slide__title').forEach(function(el) {
+    document.querySelectorAll('.theme-section__title, .theme-section__subtitle').forEach(function(el) {
       var text = el.textContent.trim();
-      if (sliderRenames[text]) {
-        el.textContent = sliderRenames[text];
+      if (textRenames[text]) {
+        el.textContent = textRenames[text];
       }
     });
 
