@@ -37,7 +37,11 @@
 
       // — White background for main content areas —
       '.theme-section { background-color: #FFFFFF !important; }',
-      '.header-top, .header { background-color: #FFFFFF !important; }',
+
+      // — Header/Logo area — dark bg so white logo is visible —
+      '.header-top, .header { background-color: #1A1A1A !important; }',
+      '.header .header__link, .header .header__button, .header__icons .header__link { color: #F5F5F3 !important; }',
+      '.header .header__link:hover, .header .header__button:hover { color: #C9A96E !important; }',
 
       // — Navigation bar — deep charcoal, TANE-inspired —
       '.header-navigation { background: #1A1A1A !important; }',
