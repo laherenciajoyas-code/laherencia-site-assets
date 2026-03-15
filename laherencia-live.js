@@ -23,51 +23,61 @@
       // — Google Fonts —
       '@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap");',
 
-      // — Anti-aliasing (TANE pattern) —
-      'body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }',
+      // — Override theme CSS variables — white-dominant palette —
+      ':root { --color-background: #FFFFFF !important; --color-main: #2C2C2C !important; --color-secondary: #96722E !important; --color-links: #96722E !important; --color-background-contrast: #1A1A1A !important; }',
+
+      // — Anti-aliasing —
+      'body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background-color: #FFFFFF !important; color: #2C2C2C !important; }',
 
       // — Global typography —
-      'body, .theme-font-text { font-family: "Raleway", "Helvetica Neue", sans-serif !important; font-weight: 400; letter-spacing: 0.01em; line-height: 1.7; }',
-      'h1, h2, h3, h4, h5, h6, .theme-font-title, .product-card__title, .theme-section__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 500; letter-spacing: 0.04em; }',
+      'body, .theme-font-text { font-family: "Raleway", "Helvetica Neue", sans-serif !important; font-weight: 400; letter-spacing: 0.01em; line-height: 1.7; color: #2C2C2C !important; }',
+      'h1, h2, h3, h4, h5, h6, .theme-font-title, .product-card__title, .theme-section__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 500; letter-spacing: 0.04em; color: #1A1A1A !important; }',
       'h1, .theme-section__title { font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1.8rem; }',
       'h2 { font-weight: 500; letter-spacing: 0.05em; }',
 
-      // — Navigation bar — dark, TANE-inspired —
-      '.header-navigation { background: #3B2A24 !important; }',
-      'nav.header-nav { background: #3B2A24 !important; }',
+      // — White background for main content areas —
+      '.theme-section { background-color: #FFFFFF !important; }',
+      '.header-top, .header { background-color: #FFFFFF !important; }',
+
+      // — Navigation bar — deep charcoal, TANE-inspired —
+      '.header-navigation { background: #1A1A1A !important; }',
+      'nav.header-nav { background: #1A1A1A !important; }',
       '.header-nav__menu { gap: 0 !important; justify-content: center !important; }',
       '.header-nav__item { position: relative; }',
-      '.header-nav__item + .header-nav__item::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 18px; background: rgba(237,228,217,0.2); }',
-      'nav.header-nav .header-nav__anchor:not(.header-nav__anchor--categories.header__button) { color: #EDE4D9 !important; }',
+      '.header-nav__item + .header-nav__item::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 18px; background: rgba(255,255,255,0.15); }',
+      'nav.header-nav .header-nav__anchor:not(.header-nav__anchor--categories.header__button) { color: #F5F5F3 !important; }',
       'nav.header-nav .header-nav__anchor { font-family: "Raleway", sans-serif !important; font-weight: 500 !important; font-size: 0.72rem !important; text-transform: uppercase !important; letter-spacing: 0.14em !important; padding: 0 1.8rem !important; transition: all 0.3s ease !important; }',
-      'nav.header-nav .header-nav__anchor:hover { color: #D6A678 !important; background: rgba(237,228,217,0.06) !important; }',
+      'nav.header-nav .header-nav__anchor:hover { color: #C9A96E !important; background: rgba(255,255,255,0.05) !important; }',
       '.header { border-bottom: none !important; }',
 
       // — Section titles — Mejuri-inspired: clean, centered, generous spacing —
-      '.theme-section__title { position: relative; display: inline-block; padding-bottom: 0.75rem; margin-bottom: 2rem !important; font-family: "Cormorant Garamond", Georgia, serif !important; }',
-      '.theme-section__subtitle { font-family: "Raleway", sans-serif !important; font-size: 0.75rem !important; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 400; opacity: 0.6; }',
-      '.theme-section__description { font-family: "Raleway", sans-serif !important; font-size: 0.88rem; line-height: 1.8; opacity: 0.85; }',
+      '.theme-section__title { position: relative; display: inline-block; padding-bottom: 0.75rem; margin-bottom: 2rem !important; font-family: "Cormorant Garamond", Georgia, serif !important; color: #1A1A1A !important; }',
+      '.theme-section__subtitle { font-family: "Raleway", sans-serif !important; font-size: 0.75rem !important; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 400; color: #6B6B6B !important; opacity: 1 !important; }',
+      '.theme-section__description { font-family: "Raleway", sans-serif !important; font-size: 0.88rem; line-height: 1.8; color: #4A4A4A !important; opacity: 1 !important; }',
 
-      // — Section dividers — BVV-inspired: generous whitespace —
-      '.theme-section + .theme-section { border-top: 1px solid rgba(139,94,60,0.08); }',
+      // — Section dividers — subtle, Mejuri-like —
+      '.theme-section + .theme-section { border-top: 1px solid #EBEBEB; }',
       '.theme-section { padding-top: 4rem !important; padding-bottom: 4rem !important; }',
 
-      // — Slider/Hero — TANE-inspired: editorial, dramatic —
-      '.theme-slider .theme-section__subtitle { font-family: "Raleway", sans-serif !important; font-weight: 300 !important; letter-spacing: 0.2em !important; font-size: 0.75rem !important; text-transform: uppercase; }',
-      '.theme-slider .theme-section__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 300 !important; letter-spacing: 0.08em !important; font-size: 3rem !important; }',
+      // — Slider/Hero — text legibility over photos —
+      '.theme-slider .theme-section__subtitle { font-family: "Raleway", sans-serif !important; font-weight: 300 !important; letter-spacing: 0.2em !important; font-size: 0.75rem !important; text-transform: uppercase; color: #FFFFFF !important; text-shadow: 0 1px 8px rgba(0,0,0,0.6), 0 0 20px rgba(0,0,0,0.3) !important; }',
+      '.theme-slider .theme-section__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 300 !important; letter-spacing: 0.08em !important; font-size: 3rem !important; color: #FFFFFF !important; text-shadow: 0 2px 12px rgba(0,0,0,0.6), 0 0 30px rgba(0,0,0,0.3) !important; }',
+      '.theme-slider .theme-section__description { color: #FFFFFF !important; text-shadow: 0 1px 6px rgba(0,0,0,0.5) !important; }',
+      '.theme-slider .btn, .theme-slider .button, .theme-slider .theme-button { background: #FFFFFF !important; color: #1A1A1A !important; border: none !important; text-shadow: none !important; }',
+      '.theme-slider .btn:hover, .theme-slider .button:hover, .theme-slider .theme-button:hover { background: #F5F5F3 !important; color: #96722E !important; }',
 
-      // — Product cards — Mejuri-inspired: minimal, clean hover —
-      '.product-card { transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); border-radius: 0 !important; overflow: hidden; }',
-      '.product-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(59,42,36,0.08); }',
-      '.product-card__title { font-size: 0.92rem; font-weight: 500; letter-spacing: 0.02em; line-height: 1.4; }',
-      '.product-card__price { font-family: "Raleway", sans-serif !important; font-weight: 600; letter-spacing: 0.03em; font-size: 0.85rem; }',
+      // — Product cards — Mejuri-inspired: minimal, clean hover, white bg —
+      '.product-card { transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); border-radius: 0 !important; overflow: hidden; background: #FFFFFF !important; }',
+      '.product-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); }',
+      '.product-card__title { font-size: 0.92rem; font-weight: 500; letter-spacing: 0.02em; line-height: 1.4; color: #2C2C2C !important; }',
+      '.product-card__price { font-family: "Raleway", sans-serif !important; font-weight: 600; letter-spacing: 0.03em; font-size: 0.85rem; color: #1A1A1A !important; }',
 
       // — Article/Blog cards — editorial look —
       '.article-block { border-radius: 0 !important; overflow: hidden; }',
       '.article-block__wrapper { transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); }',
       '.article-block:hover .article-block__wrapper { transform: translateY(-2px); }',
-      '.article-block__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 500; font-size: 1.1rem; letter-spacing: 0.02em; line-height: 1.4; }',
-      '.article-block__date { font-family: "Raleway", sans-serif !important; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; }',
+      '.article-block__title { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 500; font-size: 1.1rem; letter-spacing: 0.02em; line-height: 1.4; color: #2C2C2C !important; }',
+      '.article-block__date { font-family: "Raleway", sans-serif !important; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8A8A8A !important; opacity: 1 !important; }',
 
       // — Buttons — sharp, no radius (BVV + TANE) —
       '.btn, .button:not(.header-nav__anchor):not(.header__link):not(.header__button):not(.theme-tabs__tab), [class*="btn-primary"], .theme-button { font-family: "Raleway", sans-serif !important; font-weight: 600 !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; font-size: 0.72rem !important; border-radius: 0 !important; transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important; }',
@@ -78,22 +88,22 @@
       // — Footer base —
       'footer, .footer { font-family: "Raleway", sans-serif !important; font-size: 0.85rem; letter-spacing: 0.02em; }',
 
-      // — Trust banner —
-      '.lh-trust-banner { background: #3B2A24; color: #EDE4D9; padding: 3rem 1rem; text-align: center; font-family: "Raleway", sans-serif; }',
+      // — Trust banner — deep charcoal with warm gold accents —
+      '.lh-trust-banner { background: #1A1A1A; color: #F5F5F3; padding: 3.5rem 1rem; text-align: center; font-family: "Raleway", sans-serif; }',
       '.lh-trust-banner__inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 3.5rem; flex-wrap: wrap; }',
       '.lh-trust-item { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; min-width: 180px; }',
-      '.lh-trust-item__icon { font-size: 1.4rem; opacity: 0.8; }',
-      '.lh-trust-item__title { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: #EDE4D9; }',
-      '.lh-trust-item__text { font-size: 0.72rem; opacity: 0.65; letter-spacing: 0.03em; line-height: 1.5; }',
+      '.lh-trust-item__icon { font-size: 1.4rem; color: #C9A96E; opacity: 1; }',
+      '.lh-trust-item__title { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: #F5F5F3; }',
+      '.lh-trust-item__text { font-size: 0.72rem; color: #B0B0B0; letter-spacing: 0.03em; line-height: 1.5; opacity: 1; }',
 
-      // — Footer nav —
-      '.lh-footer-nav { background: #EDE4D9; border-top: 1px solid rgba(139,94,60,0.15); padding: 2.5rem 1rem; text-align: center; }',
+      // — Footer nav — light, clean —
+      '.lh-footer-nav { background: #FAFAF8; border-top: 1px solid #EBEBEB; padding: 2.5rem 1rem; text-align: center; }',
       '.lh-footer-nav__inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }',
-      '.lh-footer-nav a { font-family: "Raleway", sans-serif; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: #3B2A24; text-decoration: none; transition: all 0.3s ease; padding: 0.3rem 0; border-bottom: 1px solid transparent; }',
-      '.lh-footer-nav a:hover { color: #8B5E3C; border-bottom-color: #8B5E3C; }',
+      '.lh-footer-nav a { font-family: "Raleway", sans-serif; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: #2C2C2C; text-decoration: none; transition: all 0.3s ease; padding: 0.3rem 0; border-bottom: 1px solid transparent; }',
+      '.lh-footer-nav a:hover { color: #96722E; border-bottom-color: #96722E; }',
 
-      // — Top bar —
-      '.lh-top-bar { background: #8B5E3C; color: #EDE4D9; text-align: center; padding: 0.55rem 1rem; font-family: "Raleway", sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }',
+      // — Top bar — warm gold, prestigious —
+      '.lh-top-bar { background: #96722E; color: #FFFFFF; text-align: center; padding: 0.55rem 1rem; font-family: "Raleway", sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }',
 
       // — Hide Jumpseller branding —
       'a[href*="jumpseller.com"]:not([class]) { display: none !important; }',
@@ -102,14 +112,17 @@
       'html { scroll-behavior: smooth; }',
       '* { transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); }',
 
-      // — Page content —
-      '.page__body p, .page__body li { font-size: 0.92rem; line-height: 1.85; color: #3B2A24; }',
-      '.page__body h2 { font-family: "Cormorant Garamond", serif !important; font-weight: 600; font-size: 1.5rem; color: #3B2A24; margin-top: 2.5rem; margin-bottom: 1rem; letter-spacing: 0.04em; }',
-      '.page__body h3 { font-family: "Cormorant Garamond", serif !important; font-weight: 500; font-size: 1.15rem; color: #8B5E3C; letter-spacing: 0.03em; }',
+      // — Page content — readable dark text on white —
+      '.page__body p, .page__body li { font-size: 0.92rem; line-height: 1.85; color: #2C2C2C; }',
+      '.page__body h2 { font-family: "Cormorant Garamond", serif !important; font-weight: 600; font-size: 1.5rem; color: #1A1A1A; margin-top: 2.5rem; margin-bottom: 1rem; letter-spacing: 0.04em; }',
+      '.page__body h3 { font-family: "Cormorant Garamond", serif !important; font-weight: 500; font-size: 1.15rem; color: #96722E; letter-spacing: 0.03em; }',
 
       // — Image treatments — subtle zoom on hover (BVV) —
       '.product-card__image img, .article-block img { transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) !important; }',
       '.product-card:hover .product-card__image img, .article-block:hover img { transform: scale(1.03) !important; }',
+
+      // — Banner blocks — text over images legibility —
+      '.banner-block__title, .banner-block__subtitle { text-shadow: 0 1px 8px rgba(0,0,0,0.5), 0 0 20px rgba(0,0,0,0.2) !important; }',
 
       // — Mobile —
       '@media (max-width: 768px) {',
