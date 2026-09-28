@@ -1,0 +1,59 @@
+<!--
+  Schema LocalBusiness para La Herencia Joyas.
+  Pegar en el <head> del tema de Jumpseller (Diseño → Editar código → layout),
+  REEMPLAZANDO el bloque JSON-LD "JewelryStore" actual para no duplicarlo.
+  Antes de publicar: agregar "telephone" y "geo" (coordenadas reales de la tienda),
+  y validar en https://search.google.com/test/rich-results
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "JewelryStore",
+  "@id": "https://www.laherenciajoyas.cl/#store",
+  "name": "La Herencia Joyas",
+  "url": "https://www.laherenciajoyas.cl",
+  "logo": "https://images.jumpseller.com/store/la-herencia/store/logo/logo_la_herencia.jpg",
+  "image": "https://images.jumpseller.com/store/la-herencia/store/logo/logo_la_herencia.jpg",
+  "description": "Joyería artesanal en Santiago de Chile. Joyas de oro 18K y plata 950 hechas a mano: medallas religiosas, regalos de bautizo, primera comunión y confirmación, aros, cadenas y argollas. Grabado personalizado y envío a todo Chile.",
+  "priceRange": "$$",
+  "currenciesAccepted": "CLP",
+  "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Leonardo da Vinci 7346",
+    "addressLocality": "Las Condes",
+    "addressRegion": "Región Metropolitana",
+    "addressCountry": "CL"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Santiago"},
+    {"@type": "AdministrativeArea", "name": "Región Metropolitana"},
+    {"@type": "Country", "name": "Chile"}
+  ],
+  "knowsAbout": [
+    "Joyas de oro 18K",
+    "Joyas religiosas",
+    "Medallas religiosas",
+    "Regalos de primera comunión",
+    "Regalos de bautizo",
+    "Regalos de confirmación",
+    "Aros abridores para recién nacida",
+    "Grabado de joyas"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Joyas de oro 18K y plata 950",
+    "itemListElement": [
+      {"@type": "OfferCatalog", "name": "Regalos de Primera Comunión", "url": "https://www.laherenciajoyas.cl/personalizados/primera-comunion"},
+      {"@type": "OfferCatalog", "name": "Regalos de Bautizo", "url": "https://www.laherenciajoyas.cl/personalizados/bautizo"},
+      {"@type": "OfferCatalog", "name": "Regalos de Confirmación", "url": "https://www.laherenciajoyas.cl/personalizados/confirmacion"},
+      {"@type": "OfferCatalog", "name": "Medallas Religiosas", "url": "https://www.laherenciajoyas.cl/medallas"},
+      {"@type": "OfferCatalog", "name": "Joyas de Oro 18K", "url": "https://www.laherenciajoyas.cl/joyas-18-k"},
+      {"@type": "OfferCatalog", "name": "Joyería en Plata 950", "url": "https://www.laherenciajoyas.cl/joyeria-plata-950-paladio"}
+    ]
+  },
+  "sameAs": [
+    "https://www.instagram.com/laherenciajoyas"
+  ]
+}
+</script>
