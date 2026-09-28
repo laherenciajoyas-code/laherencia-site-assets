@@ -81,7 +81,7 @@ clave 150–300 palabras + 3–4 preguntas frecuentes visibles. Ejemplo para Pri
   Espíritu Santo), cruz o denario de oro 18K, idealmente con grabado de nombre y fecha.
 - ¿Quién regala la joya? — Tradicionalmente los padrinos o abuelos.
 - ¿Se puede grabar? — Sí, grabado personalizado en el reverso.
-- ¿Hacen envíos? — A todo Chile; retiro/entrega en Santiago (Las Condes).
+- ¿Hacen envíos? — Sí, a todo Chile.
 
 Estas respuestas directas son exactamente el formato que extraen Google (AI Overviews) y ChatGPT.
 
